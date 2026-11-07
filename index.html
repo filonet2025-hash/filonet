@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filonet Shop - Sant'Agata Militello</title>
+<style>body{font-family:Arial,sans-serif;margin:0;background:#cfeeff;color:#0b2a4a}header{background:linear-gradient(90deg,#e60000,#0057b8);color:#fff;padding:20px 14px;text-align:center}header h1{margin:0;font-size:32px;font-weight:900}header p{margin:8px 0 0;font-size:14px;line-height:1.5;color:#fff}.offer{background:#ff6600;color:#fff;text-align:center;padding:12px;font-weight:900;font-size:15px}.cartBar{background:#0057b8;color:#fff;text-align:center;padding:13px;font-weight:800;position:sticky;top:0;z-index:19;cursor:pointer;font-size:15px}.catBar{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#a8d8ff;position:sticky;top:0;z-index:10}.catBtn{white-space:nowrap;padding:10px 16px;border-radius:999px;border:1px solid #fff;background:#fff;cursor:pointer;font-weight:800;color:#0057b8;font-size:14px}.catBtn.active{background:#e60000;color:#fff}.card{background:#fff;margin:14px;padding:16px;border-radius:18px;box-shadow:0 3px 10px rgba(0,0,0,.08)}.card h2{font-size:21px;margin:10px 0 6px;color:#0b2a4a}.card p{color:#333;font-size:14px;line-height:1.5}.price{color:#e60000;font-size:26px;font-weight:900}.old{color:#999;text-decoration:line-through}button{background:#0057b8;color:#fff;border:0;padding:13px;width:100%;border-radius:12px;font-weight:800;margin-top:8px;cursor:pointer;font-size:16px}.orange{background:#ff6600}input,select,textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box}label{font-weight:bold;font-size:14px}.pay{border:2px solid #eee;border-radius:12px;padding:12px;margin:8px 0;cursor:pointer}.pay.selected{border-color:#0057b8;background:#eef6ff}.totale{background:#fff3e6;padding:12px;border-radius:10px;text-align:center;font-weight:bold}img.fotoProd{width:100%;max-width:380px;border-radius:12px;display:block;margin:auto}.badge{background:#ff6600;color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:800}.servizio{background:#eef6ff;border-left:4px solid #0057b8;padding:12px;border-radius:10px;margin:8px 0}.qtyBox{display:flex;justify-content:center;align-items:center;gap:10px;margin:12px 0}.qtyBox button{width:45px;height:40px;padding:0;font-size:20px}.qtyNum{font-size:22px;font-weight:bold;min-width:30px;text-align:center}.cartItem{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eee;gap:10px}.cartItem button{width:35px;height:35px;padding:0;background:#ff4444;margin:0}</style>
+</head><body>
+<header><h1>Filonet di Giuseppe Caiola</h1><p>Via S. Marotta N.11 - Sant'Agata Militello (ME)<br>filonet2025@gmail.com - Tel: 3921075998</p></header>
+<div class="offer">OFFERTE - Prezzi IVA INCLUSA - OFFERTE VALIDE PER NOVEMBRE</div>
+
+<div class="cartBar" onclick="document.getElementById('checkoutBox').scrollIntoView({behavior:'smooth'})">🛒 CARRELLO: <span id="cartCount">0 prodotti</span> - <span id="cartTotalTop">€ 0,00</span> - Clicca per vedere</div>
+
+<div class="catBar">
+<button class="catBtn active" onclick="filtra('tutti',this)">🏠 Tutti</button>
+<button class="catBtn" onclick="filtra('registratori',this)">🧾 Registratori di Cassa</button>
+<button class="catBtn" onclick="filtra('rotoli',this)">🧻 Rotoli Carta</button>
+<button class="catBtn" onclick="filtra('accessori',this)">🔌 Accessori</button>
+<button class="catBtn" onclick="filtra('gestionali',this)">💻 Sistemi Gestionali</button>
+<button class="catBtn" onclick="filtra('assistenza',this)">🛠️ Assistenza Tecnica</button>
+<button class="catBtn" onclick="filtra('contratto',this)">📋 Contratto Assistenza</button>
+</div>
+
+<div id="listaProdotti">
+
+<div class="card prod registratori" style="text-align:center"><span class="badge">REGISTRATORI DI CASSA</span><img src="nettun.jpg" class="fotoProd" style="margin-top:10px"><h2>Olivetti Nettun@ 3000 RT</h2><p>Registratore telematico, configurazione inclusa</p><div class="old">€ 900,00</div><div class="price">€ 600,00 IVA inclusa</div><button onclick="scegli('Olivetti Nettun@ 3000 RT',600)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod registratori" style="text-align:center"><span class="badge">REGISTRATORI DI CASSA</span><img src="forma500.jpg" class="fotoProd" style="margin-top:10px"><h2>Olivetti Form 500</h2><p>Registratore telematico compatto, configurazione inclusa</p><div class="old">€ 950,00</div><div class="price">€ 750,00 IVA inclusa</div><button onclick="scegli('Olivetti Forma 500',750)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod rotoli" style="text-align:center"><span class="badge">ROTOLI CARTA</span><div style="font-size:50px">🧻</div><h2>Rotoli Carta Termica 80x80 - 10 pz</h2><p>Per registratori e stampanti termiche. Alta qualità.</p><div class="price">€ 19,00 IVA inclusa</div><div class="qtyBox"><button onclick="cambiaQty('q1',-1,19)">-</button><span class="qtyNum" id="q1">1</span><button onclick="cambiaQty('q1',1,19)">+</button><span>confezioni</span></div><div id="tot-q1" style="font-weight:bold;color:#0b6cb0">Totale: € 19,00</div><button onclick="scegliQty('Rotoli Carta 80x80 - 10 pz',19,'q1')">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod rotoli" style="text-align:center"><span class="badge">ROTOLI CARTA</span><div style="font-size:50px">🧻</div><h2>Rotoli Carta Termica 57x35 - 10 pz</h2><p>Per registratori portatili e POS.</p><div class="price">€ 6,50 IVA inclusa</div><div class="qtyBox"><button onclick="cambiaQty('q2',-1,6.5)">-</button><span class="qtyNum" id="q2">1</span><button onclick="cambiaQty('q2',1,6.5)">+</button><span>confezioni</span></div><div id="tot-q2" style="font-weight:bold;color:#0b6cb0">Totale: € 6,50</div><button onclick="scegliQty('Rotoli Carta 57x35 - 10 pz',6.5,'q2')">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod rotoli" style="text-align:center"><span class="badge">ROTOLI CARTA</span><div style="font-size:50px">🧻</div><h2>Rotoli Carta POS 57x16/18 - 10 pz</h2><p>Per POS e terminali pagamento.</p><div class="price">€ 5,00 IVA inclusa</div><div class="qtyBox"><button onclick="cambiaQty('q3',-1,5)">-</button><span class="qtyNum" id="q3">1</span><button onclick="cambiaQty('q3',1,5)">+</button><span>confezioni</span></div><div id="tot-q3" style="font-weight:bold;color:#0b6cb0">Totale: € 5,00</div><button onclick="scegliQty('Rotoli Carta POS 57x16/18 - 10 pz',5,'q3')">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod rotoli" style="text-align:center"><span class="badge">ROTOLI CARTA</span><div style="font-size:50px">🧻</div><h2>Rotoli Carta 80x80 - 50 pz - OFFERTA</h2><p>Scorta per negozio, risparmio garantito.</p><div class="old">€ 95,00</div><div class="price">€ 85,00 IVA inclusa</div><div class="qtyBox"><button onclick="cambiaQty('q4',-1,85)">-</button><span class="qtyNum" id="q4">1</span><button onclick="cambiaQty('q4',1,85)">+</button><span>confezioni</span></div><div id="tot-q4" style="font-weight:bold;color:#0b6cb0">Totale: € 85,00</div><button onclick="scegliQty('Rotoli Carta 80x80 - 50 pz',85,'q4')">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod rotoli" style="text-align:center"><span class="badge">ROTOLI CARTA</span><div style="font-size:50px">🧻</div><h2>Carta 57x35 - Confezione 50 Rotoli - OFFERTA</h2><p>Confezione da 50 rotoli, ideale per negozi e POS.</p><div class="old">€ 37,50</div><div class="price">€ 30,00 IVA inclusa</div><div class="qtyBox"><button onclick="cambiaQty('q5',-1,30)">-</button><span class="qtyNum" id="q5">1</span><button onclick="cambiaQty('q5',1,30)">+</button><span>confezioni</span></div><div id="tot-q5" style="font-weight:bold;color:#0b6cb0">Totale: € 30,00</div><button onclick="scegliQty('Carta 57x35 - Confezione 50 Rotoli',30,'q5')">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod accessori" style="text-align:center"><span class="badge">ACCESSORI</span><div style="font-size:50px">🔌</div><h2>Cassetto Portamonete Automatico</h2><p>Apertura automatica collegata al registratore.</p><div class="price">€ 85,00 IVA inclusa</div><button onclick="scegli('Cassetto Portamonete Automatico',85)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod accessori" style="text-align:center"><span class="badge">ACCESSORI</span><div style="font-size:50px">📱</div><h2>Lettore Barcode USB</h2><p>Lettore codici a barre veloce, plug & play.</p><div class="price">€ 65,00 IVA inclusa</div><button onclick="scegli('Lettore Barcode USB',65)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod accessori" style="text-align:center"><span class="badge">ACCESSORI</span><div style="font-size:50px">🖨️</div><h2>Stampante Termica 80mm</h2><p>Per scontrini e ricevute, USB + LAN.</p><div class="price">€ 155,00 IVA inclusa</div><button onclick="scegli('Stampante Termica 80mm',155)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod gestionali" style="text-align:center"><span class="badge">SISTEMI GESTIONALI</span><div style="font-size:50px">💻</div><h2>Software Gestionale Negozio - Base</h2><p>Magazzino, vendite, fatture, inventario. Installazione + formazione 1 ora inclusa.</p><div class="price">€ 390,00 IVA inclusa</div><button onclick="scegli('Software Gestionale Base',390)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod gestionali" style="text-align:center"><span class="badge">SISTEMI GESTIONALI</span><div style="font-size:50px">🍽️</div><h2>Software Gestionale Bar / Ristorante</h2><p>Comande, tavoli, asporto, magazzino. Installazione + formazione inclusa.</p><div class="price">€ 599,00 IVA inclusa</div><button onclick="scegli('Software Gestionale Bar/Ristorante',599)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod gestionali" style="text-align:center"><span class="badge">SISTEMI GESTIONALI</span><div style="font-size:50px">🖥️</div><h2>POS 80 OLIVETTI/BUFFETTI + Touch Screen per Cassa - Completo</h2><p>POS 80 OLIVETTI/BUFFETTI + Monitor Touch + Software gestionale + Stampante FISCALE OLIVETTI PRT 88 . Pronto all'uso.</p><div class="old">€ 1500,00</div><div class="price">€ 1250,00 IVA inclusa</div><button onclick="scegli('POS 80 OLIVETTI/BUFFETTI Completo',1250)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod assistenza" style="text-align:center"><span class="badge">ASSISTENZA TECNICA</span><div style="font-size:50px">🛠️</div><h2>Assistenza Tecnica - Intervento Singolo</h2><div class="servizio">✔️ Diagnosi guasto<br>✔️ Riparazione in sede o in laboratorio<br>✔️ Configurazione registratore<br>✔️ Attivazione / Cambio RT</div><div class="price">Da € 40,00 - Preventivo gratuito</div><button onclick="scegli('Assistenza Tecnica - Intervento Singolo',40)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod assistenza" style="text-align:center"><span class="badge">ASSISTENZA TECNICA</span><div style="font-size:50px">⚡</div><h2>Assistenza Urgente in Giornata</h2><p>Intervento prioritario entro 24h a Sant'Agata Militello e dintorni.</p><div class="price">Da € 90,00</div><button onclick="scegli('Assistenza Urgente in Giornata',90)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod contratto" style="text-align:center"><span class="badge">CONTRATTO ASSISTENZA - PROMO FINO AL 31 NOVEMBRE</span><div style="font-size:50px">📋</div><h2>Contratto Assistenza Annuale - BASIC</h2><div class="servizio">✔️ 2 controlli annuali<br>✔️ Assistenza telefonica prioritaria<br>✔️ Sconto 10% su ricambi<br>✔️ Aggiornamenti software</div><div class="old">€ 230,00 / anno</div><div class="price">€ 170,00 / anno IVA inclusa</div><p style="color:#ff6600;font-weight:bold">🔥 PROMOZIONE fino al 31 Novembre</p><button onclick="scegli('Contratto Assistenza Annuale BASIC - PROMO 170 euro',170)">🛒 Aggiungi al Carrello</button></div>
+
+<div class="card prod contratto" style="text-align:center"><span class="badge">CONTRATTO ASSISTENZA</span><div style="font-size:50px">⭐</div><h2>Contratto Assistenza Annuale - FULL</h2><div class="servizio">✔️ Interventi illimitati<br>✔️ Assistenza urgente in giornata<br>✔️ Sconto 10% su ricambi e rotoli<br>✔️ Verifiche fiscali incluse</div><div class="old">€ 350,00 / anno</div><div class="price">€ 290,00 / anno IVA inclusa</div><button onclick="scegli('Contratto Assistenza Annuale FULL',290)">🛒 Aggiungi al Carrello</button></div>
+
+</div>
+
+<div id="checkoutBox" class="card"><h2>📋 1. I tuoi dati</h2>
+<label>Nome *</label><input id="nome" placeholder="Mario">
+<label>Cognome *</label><input id="cognome" placeholder="Rossi">
+<label>Telefono *</label><input id="telefono" placeholder="333 1234567">
+<label>Email (facoltativa)</label><input id="email" placeholder="mario@email.com - facoltativa">
+<label>Indirizzo *</label><input id="indirizzo" placeholder="Via Roma 10, Sant'Agata Militello (ME)">
+<label>Note / Partita IVA / Tipo Assistenza</label><textarea id="note" placeholder="Es. Partita IVA, modello registratore, descrizione guasto..."></textarea></div>
+
+<div class="card"><h2>💳 2. Modalità di pagamento</h2>
+<div class="pay" onclick="setPay('Bonifico Bancario',this)">🏦 <b>Bonifico Bancario</b></div>
+<div class="pay" onclick="setPay('Carta di Credito / PayPal',this)">💳 <b>Carta di Credito / PayPal</b></div>
+<div class="pay" onclick="setPay('Contanti alla Consegna',this)">💵 <b>Contanti alla Consegna</b></div>
+<div class="pay" onclick="setPay('Pagamento in negozio / Ritiro',this)">🏪 <b>Ritiro in Negozio - Paghi in negozio</b></div>
+<label>Modalità di consegna</label><select id="consegna"><option>Ritiro in negozio - Gratis</option><option>Intervento in sede / Assistenza</option></select></div>
+
+<div class="card"><h2>🧾 3. Riepilogo ordine - Carrello</h2><div id="riepilogo">Carrello vuoto. Aggiungi un prodotto.</div><div class="totale" id="totaleBox">Totale: € 0,00 IVA inclusa</div><button class="orange" onclick="inviaOrdine()">✅ CONFERMA ORDINE - Invia a Filonet</button><button style="background:#999" onclick="svuotaCarrello()">🗑️ Svuota Carrello</button></div>
+
+<script>
+let carrello=[];let pagamentoSel="";
+function filtra(cat,btn){document.querySelectorAll('.catBtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('#listaProdotti .card.prod').forEach(p=>{p.style.display=(cat==='tutti'||p.classList.contains(cat))?'block':'none';});document.getElementById('listaProdotti').scrollIntoView({behavior:'smooth'});}
+function cambiaQty(id,delta,prezzo){let el=document.getElementById(id);let val=parseInt(el.innerText)+delta;if(val<1)val=1;if(val>99)val=99;el.innerText=val;let totEl=document.getElementById('tot-'+id);if(totEl) totEl.innerText="Totale: € "+(val*prezzo).toFixed(2).replace('.',',');}
+function aggiungiCarrello(nome,prezzoUnitario,qty){let trovato=carrello.find(x=>x.nome===nome);if(trovato){trovato.qty+=qty;trovato.totale=trovato.qty*trovato.prezzo;}else{carrello.push({nome:nome,prezzo:prezzoUnitario,qty:qty,totale:prezzoUnitario*qty});}aggiornaCarrello();}
+function scegli(nome,prezzo){aggiungiCarrello(nome,prezzo,1);alert(nome+" aggiunto! Ora hai "+carrello.length+" prodotti nel carrello.");}
+function scegliQty(nome,prezzo,qtyId){let qty=parseInt(document.getElementById(qtyId).innerText);aggiungiCarrello(nome,prezzo,qty);alert(nome+" x "+qty+" aggiunto! Totale carrello: € "+calcolaTotale().toFixed(2).replace('.',',')+" - Puoi continuare ad aggiungere altri prodotti.");}
+function calcolaTotale(){let t=0;carrello.forEach(x=>t+=x.totale);return t;}
+function aggiornaCarrello(){let html="";if(carrello.length===0){html="Carrello vuoto. Aggiungi un prodotto.";}else{carrello.forEach((item,i)=>{html+='<div class="cartItem"><div><b>'+item.nome+'</b><br>'+item.qty+' x € '+item.prezzo.toFixed(2).replace('.',',')+' = <b>€ '+item.totale.toFixed(2).replace('.',',')+'</b></div><button onclick="rimuovi('+i+')">✕</button></div>';});}document.getElementById('riepilogo').innerHTML=html;let tot=calcolaTotale();document.getElementById('cartCount').innerText=carrello.length+" prodotti";document.getElementById('cartTotalTop').innerText="€ "+tot.toFixed(2).replace('.',',');aggiornaTotale();}
+function rimuovi(i){carrello.splice(i,1);aggiornaCarrello();}
+function svuotaCarrello(){carrello=[];aggiornaCarrello();}
+function setPay(val,el){pagamentoSel=val;document.querySelectorAll('.pay').forEach(e=>e.classList.remove('selected'));el.classList.add('selected');aggiornaTotale();}
+function aggiornaTotale(){let tot=calcolaTotale();document.getElementById('totaleBox').innerText="Totale: € "+tot.toFixed(2).replace('.',',')+" IVA inclusa";}
+function inviaOrdine(){let nome=document.getElementById('nome').value.trim();let cognome=document.getElementById('cognome').value.trim();let tel=document.getElementById('telefono').value.trim();let email=document.getElementById('email').value.trim();let ind=document.getElementById('indirizzo').value.trim();let note=document.getElementById('note').value;let consegna=document.getElementById('consegna').value;if(carrello.length===0)return alert('Carrello vuoto! Aggiungi un prodotto prima!');if(!nome||!cognome||!tel||!ind)return alert('Compila Nome, Cognome, Telefono e Indirizzo! Email facoltativa.');if(!pagamentoSel)return alert('Scegli una modalità di pagamento!');let tot=calcolaTotale();let lista="";carrello.forEach(x=>{lista+="- "+x.nome+" | "+x.qty+" x € "+x.prezzo.toFixed(2)+" = € "+x.totale.toFixed(2)+"\n";});let testo="🛒 NUOVO ORDINE FILONET\n\nPRODOTTI:\n"+lista+"\nTotale finale: € "+tot.toFixed(2)+" IVA inclusa\n\nDATI CLIENTE:\nNome: "+nome+" "+cognome+"\nTelefono: "+tel+"\nEmail: "+(email?email:"non indicata")+"\nIndirizzo: "+ind+"\nNote: "+note+"\n\nPAGAMENTO: "+pagamentoSel+"\nCONSEGNA: "+consegna;window.open("https://wa.me/393921075998?text="+encodeURIComponent(testo),"_blank");setTimeout(()=>{window.location.href="mailto:filonet2025@gmail.com?subject=Nuovo Ordine - "+encodeURIComponent(nome+" "+cognome)+"&body="+encodeURIComponent(testo);},800);alert("Grazie "+nome+"! Ordine inviato a Filonet.");}
+</script></body></html>
